@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Forge | Editing Community</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Particles.js CDN for animated background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Custom CSS for fonts and particle canvas */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A1F; /* Dark background */
+            color: #E0E0FF; /* Light text */
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Particle.js container styling */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: 0; /* Ensures particles are behind content */
+        }
+
+        /* Custom glow effect */
+        .glow-text {
+            text-shadow: 0 0 8px rgba(0, 191, 255, 0.7), 0 0 15px rgba(0, 191, 255, 0.5);
+        }
+        .glow-border {
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.4), inset 0 0 8px rgba(0, 191, 255, 0.2);
+            border-color: rgba(0, 191, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-950 text-gray-100 min-h-screen antialiased flex flex-col">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-lg border-b border-blue-500/30 shadow-lg px-4 py-3 md:px-8 flex justify-between items-center rounded-b-lg">
+        <div class="text-2xl font-bold text-blue-400 glow-text flex items-center space-x-2">
+            <!-- Hexagon Icon (SVG) -->
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.25L2.25 7.5V16.5L12 21.75L21.75 16.5V7.5L12 2.25ZM12 4.5L19.5 8.25V15.75L12 19.5L4.5 15.75V8.25L12 4.5Z"/>
+            </svg>
+            <span>Zyvex's Core</span>
+        </div>
+        <nav class="space-x-4 md:space-x-8 text-lg hidden md:flex">
+            <a href="#hero" class="text-gray-300 hover:text-blue-300 transition duration-300 relative group">
+                Home
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#about" class="text-gray-300 hover:text-blue-300 transition duration-300 relative group">
+                About
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#stats" class="text-gray-300 hover:text-blue-300 transition duration-300 relative group">
+                Stats
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#features" class="text-gray-300 hover:text-blue-300 transition duration-300 relative group">
+                Features
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#join" class="text-gray-300 hover:text-blue-300 transition duration-300 relative group">
+                Join
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+        <button class="md:hidden text-gray-300 hover:text-blue-300 focus:outline-none">
+            <!-- Hamburger Icon (SVG) -->
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
+    <main class="flex-grow pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[calc(100vh-6rem)] flex flex-col justify-center items-center text-center p-4">
+            <!-- Particles.js container -->
+            <div id="particles-js" class="z-0"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto space-y-6 animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight glow-text animate-pulse-slow">
+                    Welcome to the Zyvex's Core
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto animate-slide-up">
+                    A decentralized hub for video editors and creative minds. Forge your path, share your vision, and collaborate on the future of digital art.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-6">
+                    <button class="cta-button bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out relative overflow-hidden group">
+                        Enter The Grid
+                        <span class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                    </button>
+                </div>
+                <div id="walletStatus" class="mt-4 text-green-400 text-lg opacity-0 transition-opacity duration-500"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-24 bg-gray-900/70 backdrop-blur-md rounded-xl mx-4 md:mx-8 mb-12 border border-blue-500/20 glow-border animate-fade-in-up">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-400 mb-8 glow-text">What is Nexus Forge?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-xl border border-blue-500/20 transform hover:scale-102 transition duration-300">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-4">Decentralized Collaboration</h3>
+                        <p class="text-gray-300">
+                            We're building a platform where editors can find projects, collaborate seamlessly, and get recognized for their work without traditional gatekeepers. Your contributions shape the community.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-xl border border-blue-500/20 transform hover:scale-102 transition duration-300">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-4">Empowering Creators</h3>
+                        <p class="text-gray-300">
+                            From beginners to seasoned pros, Nexus Forge provides resources, mentorship, and a vibrant community to help you grow your skills and elevate your editing craft.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Stats Section -->
+        <section id="stats" class="py-16 md:py-24 text-center">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-400 mb-12 glow-text">Community Statistics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-gray-800/60 p-8 rounded-xl shadow-xl border border-purple-500/20 glow-border transform hover:scale-105 transition duration-300 animate-slide-in-left">
+                        <h3 class="text-6xl font-extrabold text-purple-400 mb-4" id="memberCount">0</h3>
+                        <p class="text-xl text-gray-300">Active Editors</p>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="bg-gray-800/60 p-8 rounded-xl shadow-xl border border-blue-500/20 glow-border transform hover:scale-105 transition duration-300 delay-150 animate-slide-in-up">
+                        <h3 class="text-6xl font-extrabold text-blue-400 mb-4" id="projectCount">0</h3>
+                        <p class="text-xl text-gray-300">Projects Completed</p>
+                    </div>
+                    <!-- Stat Card 3 -->
+                    <div class="bg-gray-800/60 p-8 rounded-xl shadow-xl border border-green-500/20 glow-border transform hover:scale-105 transition duration-300 delay-300 animate-slide-in-right">
+                        <h3 class="text-6xl font-extrabold text-green-400 mb-4" id="communityPoints">0</h3>
+                        <p class="text-xl text-gray-300">Community Points</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mt-8 text-sm italic">
+                    *Data is simulated for demonstration purposes. Real-time data integration would require a backend.
+                </p>
+            </div>
+        </section>
+
+        <!-- Features/Projects Section -->
+        <section id="features" class="py-16 md:py-24 bg-gray-900/70 backdrop-blur-md rounded-xl mx-4 md:mx-8 mb-12 border border-blue-500/20 glow-border animate-fade-in-up">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-400 mb-12 glow-text">Key Features & Initiatives</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Skill Trees & Badges</h3>
+                        <p class="text-gray-300">Progress through skill paths and earn verifiable badges for your expertise.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Project Showcases</h3>
+                        <p class="text-gray-300">Display your best work in a dedicated, animated gallery.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6-2h-4v2h4V4zm6 15H4V8h16v11zM9 13.5v-1h6v1h-6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Resource Vault</h3>
+                        <p class="text-gray-300">Access a curated collection of editing assets, tutorials, and tools.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Community Governance</h3>
+                        <p class="text-gray-300">Participate in key decisions shaping the future of Nexus Forge (simulated voting).</p>
+                    </div>
+                    <!-- Feature Card 5 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 6h-3V4c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v2H2v15h20V6zm-4 0h-2V4h2v2zm-5 0h-2V4h2v2zm-5 0H7V4h2v2zm11 13H3V8h18v11zM12 9c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Mentorship Program</h3>
+                        <p class="text-gray-300">Connect with experienced editors for guidance and growth.</p>
+                    </div>
+                    <!-- Feature Card 6 -->
+                    <div class="bg-gray-800/60 p-6 rounded-lg shadow-xl border border-blue-500/20 transform hover:-translate-y-2 transition duration-300">
+                        <div class="text-5xl text-blue-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2V13h2v4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-300">Track your contributions and community impact (simulated).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Discord Section -->
+        <section id="join" class="py-16 md:py-24 text-center bg-gray-900/70 backdrop-blur-md rounded-xl mx-4 md:mx-8 mb-12 border border-blue-500/20 glow-border animate-fade-in-up">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-400 mb-8 glow-text">Ready to Join the Forge?</h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10">
+                    Connect with over <span id="dynamicMemberCount" class="font-bold text-blue-300">300</span> active editors and artists.
+                    Your journey into the future of creative collaboration starts here.
+                </p>
+                <a href="YOUR_DISCORD_INVITE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="discord-button bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out relative overflow-hidden group">
+                    <svg class="inline-block w-8 h-8 mr-3 -mt-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.25 0H3.75C1.678 0 0 1.704 0 3.806V20.194C0 22.296 1.678 24 3.75 24H20.25C22.322 24 24 22.296 24 20.194V3.806C24 1.704 22.322 0 20.25 0ZM18.75 16.5H16.5V13.5C16.5 13.086 16.164 12.75 15.75 12.75H8.25C7.836 12.75 7.5 13.086 7.5 13.5V16.5H5.25V7.5H7.5V10.5C7.5 10.914 7.836 11.25 8.25 11.25H15.75C16.164 11.25 16.5 10.914 16.5 10.5V7.5H18.75V16.5Z"/>
+                    </svg>
+                    Join Our Discord Server
+                    <span class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-80 backdrop-blur-lg border-t border-blue-500/30 shadow-lg mt-12 py-8 text-center text-gray-400 rounded-t-lg">
+        <p>&copy; 2025 Nexus Forge. All rights reserved. Built with passion for the future of creativity.</p>
+        <p class="mt-2 text-sm">
+            <a href="#" class="hover:text-blue-400 transition duration-300">Privacy Policy</a> |
+            <a href="#" class="hover:text-blue-400 transition duration-300">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize Particles.js for the hero section background
+        // You can customize these settings to change the look and feel of the particles
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00BFFF" // Blue color for particles
+                },
+                "shape": {
+                    "type": "circle", // Particles are circles
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#8A2BE2", // Purple lines
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab" // Particles follow mouse on hover
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push" // Click to add more particles
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Simulated "Connect Wallet" functionality
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const walletStatus = document.getElementById('walletStatus');
+
+        connectWalletBtn.addEventListener('click', () => {
+            walletStatus.textContent = 'Connecting to Wallet...';
+            walletStatus.classList.remove('text-green-400', 'text-red-400');
+            walletStatus.classList.add('text-yellow-400', 'opacity-100');
+
+            // Simulate a delay for connection
+            setTimeout(() => {
+                const success = Math.random() > 0.3; // Simulate connection success/failure
+                if (success) {
+                    walletStatus.textContent = 'Wallet Connected: 0xAbC...DeF';
+                    walletStatus.classList.remove('text-yellow-400');
+                    walletStatus.classList.add('text-green-400');
+                } else {
+                    walletStatus.textContent = 'Connection Failed. Try again.';
+                    walletStatus.classList.remove('text-yellow-400');
+                    walletStatus.classList.add('text-red-400');
+                }
+            }, 1500);
+        });
+
+        // Animated Number Counters for Stats Section
+        function animateNumber(id, start, end, duration) {
+            const element = document.getElementById(id);
+            let startTime = null;
+
+            function easeOutQuad(t) {
+                return t * (2 - t);
+            }
+
+            function animate(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = (currentTime - startTime) / duration;
+                const easedProgress = easeOutQuad(Math.min(progress, 1));
+                const currentValue = Math.floor(start + (end - start) * easedProgress);
+                element.textContent = currentValue;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    element.textContent = end; // Ensure final value is exact
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Trigger animations when elements come into view (simple Intersection Observer)
+        const statsSection = document.getElementById('stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated'); // Mark as animated
+                    animateNumber('memberCount', 0, 1800, 2000); // Simulate 1800+ members
+                    animateNumber('projectCount', 0, 750, 2200);  // Simulate 750+ projects
+                    animateNumber('communityPoints', 0, 50000, 2500); // Simulate 50,000+ points
+                    document.getElementById('dynamicMemberCount').textContent = '1800+'; // Update dynamic text
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+        observer.observe(statsSection);
+
+        // Add CSS for animations for better visual effect on scroll.
+        // Tailwind JIT mode (or custom config) allows for arbitrary values, but for CDN,
+        // we'll stick to fixed values or define custom keyframes.
+        // These are basic CSS animations that Tailwind doesn't have built-in for scroll effects.
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes pulseSlow {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+            }
+            @keyframes slideInLeft {
+                from { opacity: 0; transform: translateX(-50px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(50px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes slideInRight {
+                from { opacity: 0; transform: translateX(50px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+
+            .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+            .animate-slide-up { animation: slideUp 1s ease-out forwards; }
+            .animate-pulse-slow { animation: pulseSlow 4s infinite ease-in-out; }
+            .animate-fade-in-up { animation: fadeIn 1s ease-out forwards, slideUp 1s ease-out forwards; }
+            .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+            .animate-slide-in-up { animation: slideInUp 0.8s ease-out forwards; }
+            .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+            .delay-150 { animation-delay: 0.15s; }
+            .delay-300 { animation-delay: 0.3s; }
+
+            /* Ensure elements are hidden initially before animation */
+            .animate-fade-in, .animate-slide-up, .animate-fade-in-up,
+            .animate-slide-in-left, .animate-slide-in-up, .animate-slide-in-right {
+                opacity: 0;
+            }
+        `;
+        document.head.appendChild(styleTag);
+    </script>
+</body>
+</html>
